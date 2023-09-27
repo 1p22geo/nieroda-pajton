@@ -13,5 +13,6 @@ def hello():
 @app.route('/ask')
 def ask():
     q = request.args.get("q")
+    print(q)
     ans = engine.ask(q)
-    return ans
+    return str(ans).replace('\n', '<br>').replace('\t', '&nbsp;&nbsp;&nbsp;&nbsp;')

@@ -1,40 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python chatbot</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        async function form_submitted(e){
-            e.preventDefault()
-            v = document.getElementById("q").value
-            
-            ans = await ((await fetch('/ask?q='+v)).text())
-            alert(ans)
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Python chatbot</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script>
+			async function form_submitted(e) {
+				e.preventDefault();
+				v = document.getElementById("q").value;
 
-            a1 = document.createElement('div')
-            //a1.classList.add()
-
-            document.querySelector("#ans").appendChild(
                 
-            )
-        
-            document.getElementById("q").value = ''
-            return false
-        }
-    </script>
-</head>
-<body>
 
-    <div class="w-screen h-screen bg-sky-200 flex flex-col" id="ans">
-        <div class="self-start w-fit p-4 m-4 bg-gray-300 rounded-md shadow-xl">Question</div>
-        <div class="self-end w-fit p-4 m-4 bg-gray-300 rounded-md shadow-xl">Answer</div>
-    </div>
+				ans = await (await fetch("/ask?q="+encodeURIComponent(v))).text();
 
-    <form class="absolute bottom-0 w-screen border-box flex items-right left-0 right-0 p-4" onsubmit="return form_submitted(event)">
-        <input class="ml-auto bg-white p-2 h-[40px] outline-gray-400 outline-2 mr-4 focus:outline-gray-800 outline rounded-full min-w-[600px] flex items-center justify-center" placeholder="Ask a question..." id="q">
-        <input type="submit"  class="bg-red-500 -ml-[6.5rem] w-20 h-[30px] self-center my-auto rounded-full" value="Submit">
-    </form>
-</body>
+				a1 = document.createElement("div");
+				a1.setAttribute(
+					"class",
+					"self-start w-fit p-4 m-4 bg-gray-300 rounded-md shadow-xl max-w-[80%] hyphens-auto mr-8"
+				);
+				a1.textContent = v;
+
+                document.querySelector("#ans").appendChild(a1);
+				a2 = document.createElement("div");
+				a2.setAttribute(
+					"class",
+					"self-end w-fit p-4 m-4 bg-gray-300 rounded-md shadow-xl max-w-[80%] hyphens-auto ml-8"
+				);
+				a2.innerHTML = ans;
+
+				document.querySelector("#ans").appendChild(a2);
+
+                a1.scrollIntoView(true, {behavior:"smooth"})
+
+				document.getElementById("q").value = "";
+				return false;
+			}
+		</script>
+	</head>
+	<body class="bg-sky-200">
+		<div class="w-screen min-h-screen bg-sky-200 flex flex-col pb-24" id="ans">
+			<!-- <div class="self-start w-fit p-4 m-4 bg-gray-300 rounded-md shadow-xl">
+				Question
+			</div>
+			<div class="self-end w-fit p-4 m-4 bg-gray-300 rounded-md shadow-xl">
+				Answer
+			</div> -->
+		</div>
+
+		<form
+			class="sticky bottom-0 w-screen border-box flex items-right left-0 right-0 p-4"
+			onsubmit="return form_submitted(event)"
+		>
+			<input
+				class="ml-auto bg-white p-2 h-[40px] outline-gray-400 outline-2 mr-4 focus:outline-gray-800 outline rounded-full min-w-[600px] flex items-center justify-center"
+				placeholder="Ask a question..."
+				id="q"
+				autofocus
+			/>
+			<input
+				type="submit"
+				class="bg-red-500 -ml-[6.5rem] w-20 h-[30px] self-center my-auto rounded-full"
+				value="Submit"
+			/>
+		</form>
+	</body>
 </html>

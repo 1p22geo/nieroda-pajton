@@ -6,6 +6,7 @@ class ChatEngine():
         self.questionlist:Question_list = questions
         
     def ask(self, query):
+        print(f"Processing query: {query}")
         q = self.questionlist.search(query)
         return q.get_answer(query)
     
