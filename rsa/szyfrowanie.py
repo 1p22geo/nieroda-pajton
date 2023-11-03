@@ -1,24 +1,32 @@
 from cryptography.hazmat.primitives import serialization
-
-with open("klucze/klucz", "rb") as key_file:
-    private_key = serialization.load_pem_private_key(
-        key_file.read(),
-        password=b'pass',
-    )
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import padding
+from cryptography.hazmat.primitives.asymmetric import utils
+import time
     
-with open("klucze/klucz.pub", "rb") as key_file:
+    
+
+    
+print("kogo zabić: ")
+time.sleep(0.5)
+file = input("to znaczy zaszyfrować: ")
+kfile = input("podaj klucz publiczny: ")
+
+with open(kfile, "rb") as key_file:
     public_key = serialization.load_pem_public_key(
         key_file.read()
     )
-    
-    
-print(private_key.private_bytes(
-    encoding=serialization.Encoding.PEM,
-    format=serialization.PrivateFormat.PKCS8,
-    encryption_algorithm=serialization.BestAvailableEncryption(b'pass')).decode("ascii")
-      )
 
-print(public_key.public_bytes(
-    encoding=serialization.Encoding.PEM,
-    format=serialization.PublicFormat.PKCS1
-    ).decode("ascii"))
+text = b""
+with open(file, 'rb') as f:
+    text = f.read()
+    
+    
+text = public_key.encrypt(text, padding.OAEP(
+        mgf=padding.MGF1(algorithm=hashes.SHA256()),
+        algorithm=hashes.SHA256(),
+        label=None
+    ))
+
+with open(file, 'wb') as f:
+    f.write(text)
