@@ -1,3 +1,7 @@
+class DatabaseIndexException(Exception):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
 class Database():
     def __init__(self):
         self.data = []
@@ -12,6 +16,9 @@ class Database():
         if index == -1:
             return self.data
         else:
-            return self.data[index]
+            try:
+                return self.data[index]
+            except:
+                raise DatabaseIndexException(f"data has no index: {index}")
     def len(self):
         return len(self.data)
