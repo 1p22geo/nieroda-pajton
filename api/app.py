@@ -7,17 +7,18 @@ app = Flask("app")
 
 data = Database()
 
+
 @app.route('/sorted/<ix>', methods=['GET'])
-def sorted_route(ix): 
-    fn = lambda x: x[ix]
+def sorted_route(ix):
     return (json.dumps(
         {
-            "data": sort.fnsort(data.get(), fn)
+            "data": sort.fnsort(data.get(), lambda x: x[ix])
         }
     ))
 
+
 @app.route('/data', methods=['POST', 'GET'])
-def data_route(): 
+def data_route():
     if request.method == 'GET':
         return (json.dumps(
             {
@@ -26,19 +27,19 @@ def data_route():
         ))
     if request.method == 'POST':
         return {'inserted_id':  data.insert(request.get_json(force=True))}
-    
+
+
 @app.route('/data/<int:id>', methods=['POST', 'GET'])
-def data_id_route(id): 
+def data_id_route(id):
     if request.method == 'GET':
         try:
             return (json.dumps(
                 {
                     "data": data.get(id),
-                    "id":id
+                    "id": id
                 }
             ))
-        except DatabaseIndexException as de:
+        except DatabaseIndexException:
             return f"No such index in database: {id}"
     if request.method == 'POST':
         return {'inserted_id': data.insert(request.get_json(force=True), id)}
-    
