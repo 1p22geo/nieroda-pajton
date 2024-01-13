@@ -1,3 +1,6 @@
+from lib.index import getIxSafe
+
+
 class DatabaseIndexException(Exception):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -26,3 +29,11 @@ class Database():
 
     def len(self):
         return len(self.data)
+
+    def filter(self, args):
+        data = self.data[:]
+        for k in args.keys():
+            print(data)
+            print(k, args.get(k))
+            data = [x for x in data if getIxSafe(x, k) == args.get(k)]
+        return data

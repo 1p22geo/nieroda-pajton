@@ -29,6 +29,15 @@ def data_route():
         return {'inserted_id':  data.insert(request.get_json(force=True))}
 
 
+@app.route('/filter', methods=['GET'])
+def filter_route():
+    return (json.dumps(
+        {
+            "data": data.filter(request.args)
+        }
+    ))
+
+
 @app.route('/data/<int:id>', methods=['POST', 'GET'])
 def data_id_route(id):
     if request.method == 'GET':
