@@ -9,6 +9,7 @@ import lib.roof
 
 import components.whiteHouse
 import components.parking
+import components.plac
 
 
 t = turtle.Turtle()
@@ -48,23 +49,7 @@ components.whiteHouse.whiteHouse(t, -100, 35, 50, 15, 12.5)
 components.parking.Parking(t, 110, -35)
 
 # Plac z fontanna
-lib.square.drawSquare(t, -90, -35, 3.1, -3.1, "white")
-lib.move.move(t, -10, -140)
-t.fillcolor("blue")
-t.begin_fill()
-t.circle(25)
-t.end_fill()
-lib.move.move(t, -10, -155)
-t.circle(40)
-lib.move.move(t, -10, -115)
-t.goto(-10, -75)
-lib.move.move(t, 30, -115)
-t.left(90)
-t.circle(20, 180)
-lib.move.move(t, -10, -115)
-t.left(180)
-t.circle(20, 180)
-
+components.plac.plac(t, -90, -35)
 # Droga wypelnienie
 lib.square.drawSquare(t, -250, 0, 10, -0.5, "grey")
 lib.square.drawSquare(t, -125, -25, 0.5, -3.5, "grey")
