@@ -1,0 +1,10 @@
+{
+  "threading":{
+    "threadTimeout":10,
+    "syncDelayUnit":5
+  },
+  "osVisuals":{
+    "font":"Arial",
+    "fontSize":20
+  }
+}
