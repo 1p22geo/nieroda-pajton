@@ -1,11 +1,16 @@
 import turtle
+
 import lib
 import lib.square
 import lib.door
 import lib.window
 import lib.move
 import lib.roof
+
 import components.whiteHouse
+import components.parking
+
+
 t = turtle.Turtle()
 t.speed(100000000000)
 
@@ -39,19 +44,8 @@ lib.roof.drawRoof(t, -175, 75, 50, 25)
 
 # Bialy domek
 components.whiteHouse.whiteHouse(t, -100, 35, 50, 15, 12.5)
+components.parking.Parking(t, 110, -35)
 # Parking gora
-lib.move.move(t, 110, -35)
-t.goto(110, -80)
-t.goto(155, -80)
-t.goto(155, -35)
-t.goto(155, -80)
-t.goto(200, -80)
-t.goto(200, -35)
-t.goto(200, -80)
-t.goto(245, -80)
-t.goto(245, -35)
-lib.move.move(t, 110, -35)
-
 # Parking kolo
 lib.move.move(t, 177.5, -140)
 t.circle(25)
@@ -181,3 +175,5 @@ t.circle(5, 180)
 lib.move.move(t, 140, 40)
 t.right(180)
 t.circle(5, 180)
+
+turtle.mainloop()
