@@ -47,9 +47,6 @@ components.whiteHouse.whiteHouse(t, -100, 35, 50, 15, 12.5)
 components.parking.Parking(t, 110, -35)
 # Parking gora
 # Parking kolo
-lib.move.move(t, 177.5, -140)
-t.circle(25)
-
 # Parking dol
 # Parking litera
 lib.move.move(t, 168, -124)
