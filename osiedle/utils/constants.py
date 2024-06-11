@@ -1,7 +1,7 @@
 import utils.parseConstants
 
 
-class SettingsSingleton():
+class SettingsSingleton:
     settings: dict
 
     def __init__(self):

@@ -1,16 +1,17 @@
 from threaded_turtle import ThreadSerializer, TurtleThread
 import turtle
 
-from main.functors import \
-    asyncRoadBlock, \
-    asyncDrzwi, \
-    asyncOkna, \
-    asyncDachy, \
-    asyncWhiteHouse, \
-    asyncParking, \
-    asyncPlac, \
-    asyncDroga, \
-    asyncRusztowanie
+from main.functors import (
+    asyncRoadBlock,
+    asyncDrzwi,
+    asyncOkna,
+    asyncDachy,
+    asyncWhiteHouse,
+    asyncParking,
+    asyncPlac,
+    asyncDroga,
+    asyncRusztowanie,
+)
 
 
 ctrl = ThreadSerializer()
@@ -25,5 +26,5 @@ threads = [
     TurtleThread(ctrl, turtle.Turtle(), target=asyncParking),
     TurtleThread(ctrl, turtle.Turtle(), target=asyncPlac),
     TurtleThread(ctrl, turtle.Turtle(), target=asyncDroga),
-    TurtleThread(ctrl, turtle.Turtle(), target=asyncRusztowanie)
+    TurtleThread(ctrl, turtle.Turtle(), target=asyncRusztowanie),
 ]

@@ -46,15 +46,19 @@ class Parking:
 
     def kolo(self):
         lib.move.move(
-            self.t, self.x + self.config.size * 1.5, self.y -
-            self.config.size - self.config.distance / 2
+            self.t,
+            self.x + self.config.size * 1.5,
+            self.y - self.config.size - self.config.distance / 2,
         )
         self.t.circle(self.config.circleRadius)
         self.litera()
 
     def litera(self):
-        lib.move.move(self.t, self.x + self.config.size*1.5-10,
-                      self.y - self.config.size - self.config.distance/2+13)
+        lib.move.move(
+            self.t,
+            self.x + self.config.size * 1.5 - 10,
+            self.y - self.config.size - self.config.distance / 2 + 13,
+        )
         self.t.color("black")
         self.t.write("P", font=(self.config.font,
                      self.config.fontSize, "bold"))

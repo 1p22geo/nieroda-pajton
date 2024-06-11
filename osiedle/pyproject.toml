@@ -1,0 +1,7 @@
+[tool.autopep8]
+max_line_length = 79
+ignore = []
+exclude = "vendor"
+in-place = true
+recursive = true
+aggressive = 3

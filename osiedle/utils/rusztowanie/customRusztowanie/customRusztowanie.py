@@ -1,7 +1,13 @@
 import lib.move
 
 
-def customRusztowanie(t, x=50, y=40, step=10, circle_radius=5, horizontal_length=100):
+def customRusztowanie(
+        t,
+        x=50,
+        y=40,
+        step=10,
+        circle_radius=5,
+        horizontal_length=100):
     # Draw horizontal line and vertical lines
     lib.move.move(t, x, y)
     t.goto(x + horizontal_length, y)

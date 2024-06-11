@@ -1,4 +1,4 @@
-class ParkingConfig():
+class ParkingConfig:
     size: int
     """
         The size of a single parking lot. Alias for blockSize
@@ -8,7 +8,13 @@ class ParkingConfig():
         The size of a single parking lot.
     """
 
-    def __init__(self, blockSize=45, distance=115, circleRadius=25, font="Arial", fontSize=20) -> None:
+    def __init__(
+            self,
+            blockSize=45,
+            distance=115,
+            circleRadius=25,
+            font="Arial",
+            fontSize=20) -> None:
         self.blockSize = blockSize
         self.size = blockSize
         self.distance = distance

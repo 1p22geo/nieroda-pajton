@@ -5,7 +5,7 @@ def drogaKreski(t, x=-250, y=-12.5, step=20, lines=25):
     # Horizontal lines
     for i in range(lines):
         lib.move.move(t, x + step * i, y)
-        t.goto(x + step*i + step*1/2, y)
+        t.goto(x + step * i + step * 1 / 2, y)
 
     # Vertical lines
     vertical_start_points = [-112.5, 87.5]
