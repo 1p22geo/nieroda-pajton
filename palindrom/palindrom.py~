@@ -1,0 +1,3 @@
+def is_palindrom(string):
+    for n in range(len(string):
+        if string[n] == string[-n])
