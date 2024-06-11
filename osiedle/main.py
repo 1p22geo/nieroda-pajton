@@ -1,7 +1,13 @@
 import turtle
 import lib
+import lib.square
+import lib.door
+import lib.window
+import lib.move
+import lib.roof
 import components.whiteHouse
 t = turtle.Turtle()
+t.speed(100000000000)
 
 
 # Droga i domki
@@ -32,7 +38,7 @@ lib.roof.drawRoof(t, -225, 50, 50, 25)
 lib.roof.drawRoof(t, -175, 75, 50, 25)
 
 # Bialy domek
-components.whiteHouse.whiteHouse(t, -100, 35, 50, 15)
+components.whiteHouse.whiteHouse(t, -100, 35, 50, 15, 12.5)
 # Parking gora
 lib.move.move(t, 110, -35)
 t.goto(110, -80)
