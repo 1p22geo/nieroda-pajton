@@ -1,7 +1,7 @@
 import turtle
 
 
-def drawSquare(t, x, y, w, h, c):
+def drawSquare(t: turtle.Turtle, x, y, w, h, c):
     t.penup()
     t.goto(x, y)
     t.pendown()
