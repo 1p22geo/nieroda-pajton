@@ -13,7 +13,7 @@ def customRusztowanie(t, x=50, y=40, step=10, circle_radius=5, horizontal_length
     t.right(-90)
 
     # Draw circles along the horizontal line
-    for i in range(10, horizontal_length + 1, step):
+    for i in range(0, horizontal_length, step):
         lib.move.move(t, x + i, y)
         t.right(180)
         t.circle(circle_radius, 180)
