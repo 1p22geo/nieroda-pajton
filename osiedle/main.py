@@ -1,5 +1,6 @@
 import turtle
 import lib
+import components.whiteHouse
 t = turtle.Turtle()
 
 
@@ -27,28 +28,11 @@ lib.window.drawWindow(t, -18, 67.5)
 lib.window.drawWindow(t, 100, 15)
 
 # Dachy
-lib.move.move(t, -225, 50)
-t.fillcolor("red")
-t.begin_fill()
-t.goto(-200, 75)
-t.goto(-175, 50)
-t.end_fill()
-lib.move.move(t, -175, 75)
-t.begin_fill()
-t.fillcolor("red")
-t.goto(-150, 100)
-t.goto(-125, 75)
-t.end_fill()
+lib.roof.drawRoof(t, -225, 50, 50, 25)
+lib.roof.drawRoof(t, -175, 75, 50, 25)
 
 # Bialy domek
-lib.move.move(t, -100, 35)
-t.goto(-50, 35)
-lib.move.move(t, -112.5, 50)
-t.goto(-37.5, 50)
-t.goto(-50, 62.5)
-t.goto(-100, 62.5)
-t.goto(-112.5, 50)
-
+components.whiteHouse.whiteHouse(t, -100, 35, 50, 15)
 # Parking gora
 lib.move.move(t, 110, -35)
 t.goto(110, -80)
