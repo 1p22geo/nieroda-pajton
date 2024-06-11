@@ -4,10 +4,12 @@ import lib.move
 
 
 class Parking():
-    def __init__(self, t, x, y) -> None:
+    def __init__(self, t, x, y, size=45, distance=115) -> None:
         self.x = x
         self.y = y
         self.t = t
+        self.size = size
+        self.distance = distance
         self.gora()
         self.dol()
         self.kolo()
@@ -16,21 +18,31 @@ class Parking():
         t = self.t  # alias for tutel
         lib.move.move(t, self.x, self.y)
 
-        t.goto(self.x, self.y-45)
-        t.goto(self.x+45, self.y-45)
-        t.goto(self.x + 45, self.y)
-        t.goto(self.x + 45, self.y-45)
-        t.goto(200, self.y-45)
-        t.goto(200, self.y)
-        t.goto(200, self.y-45)
-        t.goto(245, self.y-45)
-        t.goto(245, self.y)
+        t.goto(self.x, self.y-self.size)
+        t.goto(self.x+self.size, self.y-self.size)
+        t.goto(self.x + self.size, self.y)
+        t.goto(self.x + self.size, self.y-self.size)
+        t.goto(self.x + self.size * 2, self.y-self.size)
+        t.goto(self.x + self.size * 2, self.y)
+        t.goto(self.x + self.size * 2, self.y-self.size)
+        t.goto(self.x + self.size * 3, self.y-self.size)
+        t.goto(self.x + self.size * 3, self.y)
         lib.move.move(t, self.x, self.y)
 
-        pass
-
     def dol(self):
-        pass
+        t = self.t
+        y = self.y - self.distance
+        lib.move.move(t, self.x, y)
+        t.goto(self.x, y-self.size)
+        t.goto(self.x, y)
+        t.goto(self.x + self.size, y)
+        t.goto(self.x + self.size, y-self.size)
+        t.goto(self.x + self.size, y)
+        t.goto(self.x + self.size*2, y)
+        t.goto(self.x + self.size*2, y-self.size)
+        t.goto(self.x + self.size*2, y)
+        t.goto(self.x + self.size*3, y)
+        t.goto(self.x + self.size*3, y-self.size)
 
     def kolo(self):
         self.litera()

@@ -51,18 +51,6 @@ lib.move.move(t, 177.5, -140)
 t.circle(25)
 
 # Parking dol
-lib.move.move(t, 110, -150)
-t.goto(110, -195)
-t.goto(110, -150)
-t.goto(155, -150)
-t.goto(155, -195)
-t.goto(155, -150)
-t.goto(200, -150)
-t.goto(200, -195)
-t.goto(200, -150)
-t.goto(245, -150)
-t.goto(245, -195)
-
 # Parking litera
 lib.move.move(t, 168, -124)
 t.color("black")
