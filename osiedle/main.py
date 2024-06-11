@@ -11,6 +11,7 @@ import components.whiteHouse
 import components.parking
 import components.plac
 
+import utils.rusztowanie.customRusztowanie.customRusztowanie
 import utils.drogaKreski
 
 
@@ -60,40 +61,6 @@ lib.square.drawSquare(t, 75, -25, 0.5, -3.5, "grey")
 # Droga kreski
 utils.drogaKreski.drogaKreski(t, -250, -12.5)
 # Custom rusztowanie
-lib.move.move(t, 50, 40)
-t.goto(150, 40)
-t.goto(140, 40)
-t.goto(140, 0)
-t.goto(130, 0)
-t.goto(130, 40)
-lib.move.move(t, 50, 40)
-t.circle(5, 180)
-lib.move.move(t, 60, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 70, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 80, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 90, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 100, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 110, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 120, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 130, 40)
-t.right(180)
-t.circle(5, 180)
-lib.move.move(t, 140, 40)
-t.right(180)
-t.circle(5, 180)
-
+utils.rusztowanie.customRusztowanie.customRusztowanie.customRusztowanie(
+    t, 50, 40)
 turtle.mainloop()
