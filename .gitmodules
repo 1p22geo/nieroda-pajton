@@ -1,0 +1,3 @@
+[submodule "osiedle/vendor/threaded_turtle"]
+	path = osiedle/vendor/threaded_turtle
+	url = https://gitlab.com/zvone/threaded_turtle.git

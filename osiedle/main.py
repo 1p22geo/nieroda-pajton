@@ -1,6 +1,5 @@
 import turtle
 
-import lib
 import lib.square
 import lib.door
 import lib.window
@@ -11,22 +10,23 @@ import components.whiteHouse
 import components.parking
 import components.plac
 
+from components.parking.parkingConfig import ParkingConfig
+from funcs.asyncRoadBlock import asyncRoadBlock
 import utils.rusztowanie.customRusztowanie.customRusztowanie
 import utils.drogaKreski
 
+from threaded_turtle import ThreadSerializer, TurtleThread
+
+ctrl = ThreadSerializer()
 
 t = turtle.Turtle()
-t.speed(100000000000)
 
 
 # Droga i domki
-lib.square.drawSquare(t, -225, 0, 1, 1, "yellow")
-lib.square.drawSquare(t, -175, 0, 1, 1.5, "yellow")
-lib.square.drawSquare(t, -100, 0, 1, 1, "white")
-lib.square.drawSquare(t, -25, 0, 1, 2, "green")
-lib.square.drawSquare(t, 50, 0, 2, 1, "yellow")
-lib.square.drawSquare(t, -100, -25, 3.5, -3.5, "white")
+TurtleThread(ctrl, turtle.Turtle(), target=asyncRoadBlock).start()
 
+
+ctrl.run_forever(1)
 # Drzwi
 lib.door.drawDoor(t, -207.5, 0)
 lib.door.drawDoor(t, -157.5, 0)
@@ -49,7 +49,7 @@ lib.roof.drawRoof(t, -175, 75, 50, 25)
 # Bialy domek
 components.whiteHouse.whiteHouse(t, -100, 35, 50, 15, 12.5)
 # parking
-components.parking.Parking(t, 110, -35)
+components.parking.Parking(t, 110, -35, ParkingConfig())
 
 # Plac z fontanna
 components.plac.plac(t, -90, -35)
