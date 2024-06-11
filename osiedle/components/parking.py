@@ -53,4 +53,7 @@ class Parking:
         self.litera()
 
     def litera(self):
-        pass
+        lib.move.move(self.t, self.x + self.size*1.5-10,
+                      self.y - self.size - self.distance/2+13)
+        self.t.color("black")
+        self.t.write("P", font=("Arial", 20, "bold"))

@@ -44,14 +44,8 @@ lib.roof.drawRoof(t, -175, 75, 50, 25)
 
 # Bialy domek
 components.whiteHouse.whiteHouse(t, -100, 35, 50, 15, 12.5)
+# parking
 components.parking.Parking(t, 110, -35)
-# Parking gora
-# Parking kolo
-# Parking dol
-# Parking litera
-lib.move.move(t, 168, -124)
-t.color("black")
-t.write("P", font=("Arial", 20, "bold"))
 
 # Plac z fontanna
 lib.square.drawSquare(t, -90, -35, 3.1, -3.1, "white")
