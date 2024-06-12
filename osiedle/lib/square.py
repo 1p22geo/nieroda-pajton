@@ -1,4 +1,5 @@
 import turtle
+import utils.constants
 
 
 def drawSquare(t: turtle.Turtle, x, y, w, h, c):
@@ -8,9 +9,23 @@ def drawSquare(t: turtle.Turtle, x, y, w, h, c):
     if c:
         t.fillcolor(c)
         t.begin_fill()
-    t.goto(x, y + 50 * h)
-    t.goto(x + 50 * w, y + 50 * h)
-    t.goto(x + 50 * w, y)
+    t.goto(
+        x,
+        y +
+        utils.constants.SettingsSingleton.settings["units"]["sigma"]["pixel"] *
+        h)
+    t.goto(
+        x +
+        utils.constants.SettingsSingleton.settings["units"]["sigma"]["pixel"] *
+        w,
+        y +
+        utils.constants.SettingsSingleton.settings["units"]["sigma"]["pixel"] *
+        h)
+    t.goto(
+        x +
+        utils.constants.SettingsSingleton.settings["units"]["sigma"]["pixel"] *
+        w,
+        y)
     t.goto(x, y)
     if c:
         t.end_fill()
